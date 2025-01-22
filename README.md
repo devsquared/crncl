@@ -1,3 +1,6 @@
 # crncl
 
 A simple blog application written in Go.
+
+## A note on styling
+- utilizing Tailwind from CDN whilst in development; at deploy, we will want to include and minify and such

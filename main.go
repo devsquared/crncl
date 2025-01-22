@@ -1,17 +1,22 @@
 package main
 
 import (
-	"fmt"
+	"bytes"
+	"html/template"
 	"io"
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/yuin/goldmark"
+	highlighting "github.com/yuin/goldmark-highlighting/v2"
 )
 
 func main() {
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("GET /posts/{slug}", PostHandler(FileReader{}))
+	postTemplate := template.Must(template.ParseFiles("post.gohtml"))
+	mux.HandleFunc("GET /posts/{slug}", PostHandler(FileReader{}, postTemplate))
 
 	err := http.ListenAndServe(":3030", mux)
 	if err != nil {
@@ -39,7 +44,21 @@ func (fr FileReader) Read(slug string) (string, error) {
 	return string(b), nil
 }
 
-func PostHandler(sr SlugReader) http.HandlerFunc {
+type PostData struct {
+	Content template.HTML
+	Author  string
+	Title   string
+}
+
+func PostHandler(sr SlugReader, tpl *template.Template) http.HandlerFunc {
+	mdRenderer := goldmark.New(
+		goldmark.WithExtensions(
+			highlighting.NewHighlighting(
+				highlighting.WithStyle("dracula"),
+			),
+		),
+	)
+
 	return func(w http.ResponseWriter, r *http.Request) {
 		slug := r.PathValue("slug")
 		postMarkdown, err := sr.Read(slug)
@@ -47,6 +66,20 @@ func PostHandler(sr SlugReader) http.HandlerFunc {
 			//TODO: Handle errors here
 			http.Error(w, "Post not found", http.StatusNotFound)
 		}
-		fmt.Fprint(w, postMarkdown)
+		var buf bytes.Buffer
+		err = mdRenderer.Convert([]byte(postMarkdown), &buf)
+		if err != nil {
+			panic(err)
+		}
+
+		err = tpl.Execute(w, PostData{
+			Content: template.HTML(buf.String()),
+			Author:  "Devin",
+			Title:   "A Title",
+		})
+		if err != nil {
+			http.Error(w, "Error executing template", http.StatusInternalServerError)
+			return
+		}
 	}
 }

@@ -22,8 +22,20 @@ type Reader interface {
 }
 ```
 
-## Aside
-
 ::: Aside Title
 This will be an aside.
+
+Asides can include all normal markdown too like lists and code.
+
+- [x] Step 1
+- [ ] Step 2
+
+```go
+type Doer interface {
+    Do() error
+}
+```
+
 :::
+
+Additional content outside aside.

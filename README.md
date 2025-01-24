@@ -10,3 +10,4 @@ A simple blog application written in Go.
 - [ ] Tooling to edit and add posts quickly
     - [ ] bonus to add the image generator to add an image
 - [ ] Where and how to deploy
+- [ ] Goldmark has a footnote extension. Should we add that?

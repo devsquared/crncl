@@ -95,6 +95,7 @@ func PostHandler(sr SlugReader, tpl *template.Template) http.HandlerFunc {
 			highlighting.NewHighlighting(
 				highlighting.WithStyle("dracula"),
 			),
+			AsideBlockExtension{},
 		),
 	)
 

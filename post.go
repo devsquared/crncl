@@ -152,3 +152,23 @@ func IndexHandler(mq MetadataQuerier, tpl *template.Template) http.HandlerFunc {
 		}
 	}
 }
+
+func ContactHandler(tpl *template.Template) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		err := tpl.Execute(w, "")
+		if err != nil {
+			http.Error(w, "Error executing template", http.StatusInternalServerError)
+			return
+		}
+	}
+}
+
+func AboutHandler(tpl *template.Template) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		err := tpl.Execute(w, "")
+		if err != nil {
+			http.Error(w, "Error executing template", http.StatusInternalServerError)
+			return
+		}
+	}
+}

@@ -7,6 +7,9 @@ A simple blog application written in Go.
 
 
 ## Wishlist
+- [ ] Come up with color palette and apply it across
+    - [ ] start with dark mode but also enable light or dark
+- [ ] Add tags and filtering for blogs page
 - [ ] Tooling to edit and add posts quickly
     - [ ] bonus to add the image generator to add an image
 - [ ] Where and how to deploy

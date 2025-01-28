@@ -21,4 +21,5 @@ These colors are from Tailwind colors
 - [ ] Tooling to edit and add posts quickly
     - [ ] bonus to add the image generator to add an image
 - [ ] Add a "subscribe" button for users to sign up to receive posts as email newsletter
+- [ ] RSS enabled - https://kevincox.ca/2022/05/06/rss-feed-best-practices/
 - [ ] Where and how to deploy

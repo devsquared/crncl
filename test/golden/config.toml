@@ -1,0 +1,15 @@
+base_url = "localhost"
+port = 3030
+title = "Devin's Website"
+description = "Just a testing"
+enable_rss = false
+
+[color_scheme]
+main = "slate-900"
+secondary = "gray-700"
+accent = "teal-700"
+text = "teal-400"
+dark_main = "slate-900"
+dark_secondary = "gray-700"
+dark_accent = "teal-700"
+dark_text = "teal-400"

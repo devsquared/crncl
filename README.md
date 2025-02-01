@@ -5,21 +5,20 @@ A simple blog application written in Go.
 ## A note on styling
 - utilizing Tailwind from CDN whilst in development; at deploy, we will want to include and minify and such
 
-## Color Design
-These colors are from Tailwind colors
-- slate-900
-- slate-800
-- gray-400
-- teal-400
-- teal-700
+## TODO
+- [ ] Rip out the custom stuff and push forward with a blog service.
+    - [ ] image service feature
+    - [ ] RSS feed support - https://kevincox.ca/2022/05/06/rss-feed-best-practices/
+    - [ ] newsletter from posts
+    - [ ] refactor templates for better componentizing and config passed in and coloring
+    - [x] config for basic setup
+    - [x] allow color theming from config (using tailwind colors and go-templating input)
 
-
-## Wishlist
+## For personal when forking over
 - [ ] Come up with color palette and apply it across - still needs applied to all page contents; nav is done
     - [ ] start with dark mode but also enable light or dark
 - [ ] Add tags and filtering for blogs page
 - [ ] Tooling to edit and add posts quickly
     - [ ] bonus to add the image generator to add an image
 - [ ] Add a "subscribe" button for users to sign up to receive posts as email newsletter
-- [ ] RSS enabled - https://kevincox.ca/2022/05/06/rss-feed-best-practices/
 - [ ] Where and how to deploy

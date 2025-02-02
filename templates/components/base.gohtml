@@ -1,0 +1,19 @@
+{{define "base"}}
+    <!DOCTYPE html>
+    <html lang="eng">
+
+    <head>
+        {{template "head" .}}
+    </head>
+
+    <body class="">
+        <header>
+            {{template "nav" .}}
+        </header>
+        <main class={{.Colors.Main}}>
+            {{template "content" .}}
+        </main>
+    </body>
+
+    </html>
+{{end}}

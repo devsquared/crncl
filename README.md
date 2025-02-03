@@ -12,6 +12,8 @@ A simple blog application written in Go.
     - [ ] newsletter from posts
     - [ ] refactor templates for better componentizing and config passed in and coloring
         - [ ] work has started; need to componetize all templates and move to the template folder
+        - [ ] pass colors and anymore needed to templates
+        - [ ] remove images of me for base repo; replace with something else
     - [x] config for basic setup
     - [x] allow color theming from config (using tailwind colors and go-templating input)
 
